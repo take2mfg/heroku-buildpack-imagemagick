@@ -15,7 +15,7 @@ CACHE_FILE="$CACHE_DIR/imagemagick.tar.gz"
 
 if [ ! -f $CACHE_FILE ]; then
   # install imagemagick
-  IMAGE_MAGICK_VERSION="${IMAGE_MAGICK_VERSION:-6.9.3-1}"
+  IMAGE_MAGICK_VERSION="${IMAGE_MAGICK_VERSION:-6.9.3-7}"
   # http://www.imagemagick.org/download/linux/CentOS/x86_64/ImageMagick-6.9.3-7.x86_64.rpm
   IMAGE_MAGICK_FILE="ImageMagick-$IMAGE_MAGICK_VERSION.x86_64.rpm"
   IMAGE_MAGICK_DIR="ImageMagick-$IMAGE_MAGICK_VERSION"
