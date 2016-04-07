@@ -7,7 +7,6 @@ indent() {
 echo "-----> Install ImageMagick"
 
 BUILD_DIR=$1
-CACHE_DIR=$2
 VENDOR_DIR="$BUILD_DIR/vendor"
 INSTALL_DIR="$VENDOR_DIR/imagemagick"
 CACHE_FILE="$CACHE_DIR/imagemagick.tar.xz"
@@ -22,15 +21,7 @@ if [ ! -f $CACHE_FILE ]; then
   IMAGE_MAGICK_URL="http://www.imagemagick.org/download/releases/$IMAGE_MAGICK_FILE"
 
   echo "-----> Downloading ImageMagick from $IMAGE_MAGICK_URL"
-  wget $IMAGE_MAGICK_URL -P $BUILD_DIR | indent
-  
-  echo "-----> Extracting ImageMagick from $BUILD_DIR/$IMAGE_MAGICK_FILE"
-  if [ ! -f $BUILD_DIR/$IMAGE_MAGICK_FILE ]; then
-    echo "Error: Unable to download image magick" | indent
-    ls $BUILD_DIR | indent
-    exit 1;
-  fi
-  tar xvf $BUILD_DIR/$IMAGE_MAGICK_FILE | indent
+  curl -L --silent $IMAGE_MAGICK_URL | tar xz
 
   echo "-----> Building ImageMagick"
   cd $IMAGE_MAGICK_DIR
